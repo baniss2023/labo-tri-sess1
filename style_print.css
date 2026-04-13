@@ -1,0 +1,620 @@
+@page {
+  size: A4;
+  margin: 13mm 12mm 14mm;
+}
+
+html,
+body {
+  background: #ffffff !important;
+  color: #111827 !important;
+  font-size: 10.4pt;
+  line-height: 1.36;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+}
+
+.document {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.back-to-top,
+.exportbar,
+.copybtn,
+.copy-btn,
+.btnCapture,
+.btnClear,
+.proof-actions,
+.proofRemoveLink,
+.proofInsertLink,
+.proofBodyActions {
+  display: none !important;
+}
+
+.team-panel {
+  display: none !important;
+}
+
+.team-print-card {
+  display: block !important;
+  margin: 0 0 10px !important;
+  padding: 10px 12px 11px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  break-inside: avoid;
+}
+
+.team-print-title {
+  margin: 0 0 8px;
+  font-size: 11.2pt;
+  font-weight: 700;
+}
+
+.team-print-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+
+.team-print-item {
+  font-size: 9.8pt;
+}
+
+.team-print-label {
+  font-weight: 700;
+}
+
+.course-banner,
+.document-hero,
+.document-overview,
+.part,
+.card,
+.course-footer,
+.overview-panel,
+.syntax-card,
+.callout,
+.qcm-option,
+.code-window,
+.pcframe,
+.pcinner,
+.table-wrap table {
+  box-shadow: none !important;
+}
+
+.course-banner {
+  display: grid !important;
+  grid-template-columns: 1.15fr 1.55fr 1fr !important;
+  align-items: center;
+  margin: 0 0 10px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  overflow: hidden;
+}
+
+.banner-left,
+.banner-center,
+.banner-right {
+  padding: 10px 12px !important;
+}
+
+.banner-left,
+.banner-center {
+  border-right: 1px solid #dbe3ec !important;
+}
+
+.banner-photo-wrap {
+  border-color: #cbd5e1 !important;
+}
+
+.banner-name,
+.banner-course-line,
+.banner-college-main,
+.banner-college-sub,
+.banner-email,
+.course-footer-left,
+.course-footer-right,
+.footer-author-link,
+.document-title,
+.document-intro,
+.document-kicker,
+.overview-title,
+.part-title,
+.section-title,
+.subsection-title,
+.subsubsection-title,
+.card h2,
+.qcm-question {
+  color: #111827 !important;
+}
+
+.banner-course-line:first-child {
+  font-size: 15pt !important;
+}
+
+.banner-course-line:last-child {
+  font-size: 12.5pt !important;
+}
+
+.banner-logo {
+  max-width: 92px !important;
+}
+
+.document-hero {
+  margin: 0 0 10px !important;
+  padding: 12px 14px 14px !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+}
+
+.hero-figure,
+.hero-image {
+  display: none !important;
+}
+
+.document-kicker {
+  margin: 0 0 5px !important;
+  font-size: 9.2pt !important;
+  font-weight: 600;
+}
+
+.document-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 20pt !important;
+  line-height: 1.12 !important;
+}
+
+.document-intro {
+  margin: 8px 0 0 !important;
+  padding: 0 !important;
+  text-align: justify;
+}
+
+.document-overview {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.overview-panel {
+  padding: 12px 14px !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+}
+
+.overview-title {
+  margin: 0 0 10px !important;
+  padding: 0 0 6px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #dbe3ec !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: 11.4pt !important;
+}
+
+.toc-list,
+.goal-list {
+  margin: 0 !important;
+  padding-left: 16px !important;
+}
+
+.toc-item + .toc-item,
+.goal-list li + li {
+  margin-top: 5px !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
+.part,
+.card {
+  margin-top: 10px !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.part-header {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #dbe3ec !important;
+  background: #f1f5f9 !important;
+  break-after: avoid-page;
+}
+
+.part-title {
+  margin: 0 !important;
+  font-size: 15pt !important;
+  line-height: 1.16 !important;
+}
+
+.part-body,
+.card {
+  padding: 12px 14px 14px !important;
+}
+
+.section-block,
+.subsection-block,
+.subsubsection-block,
+.syntax-card,
+.resultblock,
+.proof,
+.callout,
+.qcm-block,
+.qcm-option,
+.table-wrap,
+.code-window {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.section-block + .section-block {
+  margin-top: 18px !important;
+}
+
+.section-title,
+.subsection-title,
+.subsubsection-title {
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+.section-title {
+  margin: 0 0 10px !important;
+  font-size: 12.6pt !important;
+}
+
+.subsection-title {
+  margin: 0 0 8px !important;
+  font-size: 11.2pt !important;
+}
+
+.subsubsection-title {
+  margin: 0 0 6px !important;
+  font-size: 10.5pt !important;
+}
+
+.line-section > .section-body {
+  border-left: 3px solid #cbd5e1 !important;
+  padding-left: 12px !important;
+}
+
+p,
+ul,
+ol {
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.callout,
+.syntax-card,
+.qcm-option {
+  padding: 10px 12px !important;
+  border: 1px solid #d8e1ea !important;
+  border-radius: 10px !important;
+  background: #f8fafc !important;
+}
+
+.syntax-card h4 {
+  margin: 0 0 8px !important;
+}
+
+pre,
+pre.shell,
+.resultpre,
+.code-content,
+.terminal-intro,
+.line-text,
+.line-no {
+  font-family: "Cascadia Code", Consolas, "Courier New", monospace !important;
+}
+
+pre.shell,
+.resultpre,
+pre:not(.python-editor pre) {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  color: #111827 !important;
+  background: #f8fafc !important;
+  border: 1px solid #dde5ed !important;
+  border-radius: 8px !important;
+}
+
+.code-window {
+  overflow: hidden !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+}
+
+.window-header {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px !important;
+  border-bottom: 1px solid #dbe3ec !important;
+  background: #f3f6f9 !important;
+}
+
+.window-controls span {
+  background: #c0cad5 !important;
+}
+
+.window-title {
+  color: #334155 !important;
+  font-size: 9.3pt !important;
+}
+
+.code-body {
+  padding: 0 !important;
+  background: #ffffff !important;
+}
+
+.terminal-intro {
+  padding: 10px 12px 0 !important;
+  font-size: 9.3pt !important;
+  color: #334155 !important;
+}
+
+.code-content {
+  padding: 10px 0 12px !important;
+  background: #ffffff !important;
+  font-size: 9.2pt !important;
+  line-height: 1.4 !important;
+  overflow: visible !important;
+}
+
+.line {
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+}
+
+.line-no {
+  padding: 0 10px 0 0 !important;
+  color: #94a3b8 !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+.line-text {
+  padding: 0 12px !important;
+  white-space: pre-wrap !important;
+  color: #111827 !important;
+}
+
+.theme-python .comment,
+.comment { color: #556b2f !important; }
+.theme-python .keyword,
+.theme-powershell .param,
+.keyword,
+.param { color: #6b21a8 !important; }
+.theme-python .string,
+.theme-powershell .string,
+.theme-linux .string,
+.string { color: #9a3412 !important; }
+.theme-python .number,
+.theme-powershell .number,
+.theme-linux .number,
+.number { color: #166534 !important; }
+.theme-python .function,
+.theme-powershell .function,
+.theme-linux .function,
+.function { color: #1d4ed8 !important; }
+.theme-python .builtin,
+.theme-powershell .variable,
+.theme-linux .variable,
+.variable { color: #0f766e !important; }
+.theme-python .operator,
+.theme-powershell .operator,
+.operator,
+.default,
+.boolean,
+.theme-linux .default,
+.theme-powershell .default,
+.theme-python .default { color: #111827 !important; }
+
+.resultblock {
+  margin: 10px 0 !important;
+}
+
+.pcframe {
+  padding: 16px 12px 12px !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 10px !important;
+  background: #f8fafc !important;
+}
+
+.pcframe::before,
+.pcframe::after {
+  background: #c3ced9 !important;
+}
+
+.pcinner {
+  border: 1px solid #dde5ed !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  padding: 0 !important;
+}
+
+.proof {
+  background: #f8fafc !important;
+  border: 1px dashed #cbd5e1 !important;
+}
+
+.proofEmpty {
+  display: none !important;
+}
+
+.proof-body {
+  min-height: 0 !important;
+  padding: 8px !important;
+  border: 1px dashed #cbd5e1 !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+}
+
+.proofImg {
+  display: block !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  height: auto !important;
+  border: 1px solid #dde5ed !important;
+  border-radius: 8px !important;
+}
+
+.proofImg:not([src]),
+.proofImg[src=""] {
+  display: none !important;
+}
+
+.answerbox-large,
+.team-input {
+  border: 1px solid #d5dce5 !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  min-height: 90px !important;
+}
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+}
+
+thead th {
+  background: #eef2f7 !important;
+  color: #1f2937 !important;
+  font-size: 9.8pt !important;
+}
+
+th,
+td {
+  padding: 8px 10px !important;
+  border: 1px solid #d5dce5 !important;
+  color: #111827 !important;
+}
+
+tr:nth-child(even) td {
+  background: #fafcff !important;
+}
+
+.qcm-question {
+  margin: 0 0 10px !important;
+  font-weight: 700;
+}
+
+.qcm-options {
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.qcm-option {
+  display: grid !important;
+  grid-template-columns: 16px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.qcm-option input {
+  margin-top: 2px;
+}
+
+.card h2 {
+  margin: 0 0 10px !important;
+  font-size: 14pt !important;
+}
+
+.list {
+  margin: 0 0 10px 18px !important;
+}
+
+.course-footer {
+  margin-top: 10px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #d5dce5 !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+.footer-author-link {
+  text-decoration: underline;
+}
+
+
+/* --- Ajustements impression demandés --- */
+#export,
+.toc-item-export {
+  display: none !important;
+}
+
+.capture-check {
+  width: 15px !important;
+  height: 15px !important;
+  margin: 0 !important;
+  accent-color: #3f6f2c !important;
+}
+
+.capture-checklist-table .check-cell {
+  text-align: center !important;
+}
+
+.qcm-intro {
+  border-left: 4px solid #7ba84d !important;
+  background: #f7fbf3 !important;
+}
+
+.qcm-block {
+  border: 1px solid #d6e0cb !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+}
+
+.qcm-block::before {
+  content: none !important;
+}
+
+.qcm-block > .section-title {
+  margin: 0 !important;
+  padding: 10px 12px 0 !important;
+}
+
+.qcm-badge {
+  display: inline-block !important;
+  padding: 4px 10px !important;
+  border: 1px solid #cfe0bf !important;
+  border-radius: 999px !important;
+  background: #f4f8ef !important;
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+
+.qcm-option {
+  grid-template-columns: 16px 1fr !important;
+}
+
+.code-help-tooltip,
+.export-confirm-overlay,
+#export {
+  display: none !important;
+}

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Labo — pratique des algorithmes de tri</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="style_print.css" media="print" rel="stylesheet"/>
+<link href="unified_style.css" rel="stylesheet"/>
+<script defer src="script.js"></script>
+<script defer src="unified_script.js"></script>
+</head>
+<body id="top">
+<a aria-label="Retour en haut" class="back-to-top" href="#top">↑</a>
+<main class="document">
+<header class="document-header">
+<section aria-label="En-tête du cours" class="course-banner">
+<div class="banner-left">
+<div class="banner-photo-wrap">
+<img alt="Anis Ghaieb" class="banner-photo" src="img/anis.png"/>
+</div>
+<div class="banner-left-info">
+<p class="banner-name">Anis Ghaieb</p>
+<p class="banner-email">baniss2002@gmail.com</p>
+</div>
+</div>
+<div class="banner-center">
+<p class="banner-course">
+<span class="banner-course-line">PROGRAMMATION I : INTRODUCTION AUX ALGORITHMES</span>
+<span class="banner-course-line">PRATIQUE DES TROIS MÉTHODES DE TRI</span>
+</p>
+</div>
+<div class="banner-right">
+<img alt="Collège Universel" class="banner-logo" src="img/college.png"/>
+<p class="banner-college">
+<span class="banner-college-main">Collège Universel</span>
+<span class="banner-college-sub">Campus Montréal</span>
+</p>
+</div>
+</section>
+<section aria-label="Équipe" class="team-panel">
+<div class="team-panel-head"><h2 class="team-panel-title">Équipe</h2></div>
+<div class="team-grid">
+<label class="team-field" for="teamMember1"><span class="team-label">Nom1 :</span><input autocomplete="off" class="team-member-input" id="teamMember1" placeholder="Nom de l’étudiant 1" type="text"/></label>
+<label class="team-field" for="teamMember2"><span class="team-label">Nom2 :</span><input autocomplete="off" class="team-member-input" id="teamMember2" placeholder="Nom de l’étudiant 2" type="text"/></label>
+<label class="team-field" for="teamMember3"><span class="team-label">Nom3 :</span><input autocomplete="off" class="team-member-input" id="teamMember3" placeholder="Nom de l’étudiant 3" type="text"/></label>
+<label class="team-field" for="teamMember4"><span class="team-label">Nom4 :</span><input autocomplete="off" class="team-member-input" id="teamMember4" placeholder="Nom de l’étudiant 4" type="text"/></label>
+</div>
+</section>
+<div aria-hidden="true" class="team-print-card" id="teamPrint"></div>
+<div class="document-hero">
+<figure class="content-figure hero-figure">
+<img alt="Illustration du chapitre" class="content-image hero-image" src="img/chap.png"/>
+</figure>
+<p class="document-kicker">Labo</p>
+<h1 class="document-title">Pratique des algorithmes de tri</h1>
+<p class="document-intro">Dans ce labo, vous allez travailler uniquement les trois méthodes de tri étudiées dans la leçon : le tri à bulles, le tri par sélection et le tri par insertion. L’objectif n’est pas seulement de reconnaître leur nom, mais surtout de savoir choisir la bonne logique selon le besoin, compléter du code, tester des exemples simples et reformuler clairement une méthode de tri dans vos propres mots.</p>
+</div>
+<section aria-label="Vue d’ensemble du labo" class="document-overview">
+<div class="overview-panel">
+<h2 class="overview-title">table des matières</h2>
+<nav aria-label="Table des matières du labo" class="toc-nav">
+<ul class="toc-list">
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-1">Partie 1 — Reconnaître un tri dans la vie courante</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-2">Partie 2 — Reformuler la logique des trois méthodes</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-3">Partie 3 — Compléter du code incomplet</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-4">Partie 4 — Pratiquer avec des exemples simples</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-5">Partie 5 — Choisir la bonne méthode selon le besoin</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-6">Partie 6 — Bilan final</a></li>
+<li class="toc-item toc-level-1"><a class="toc-link" href="#partie-qcm">QCM de validation</a></li>
+<li class="toc-item toc-level-1 toc-item-export"><a class="toc-link" href="#export">Exportation en PDF</a></li>
+</ul>
+</nav>
+</div>
+<div class="overview-panel">
+<h2 class="overview-title">objectifs du labo</h2>
+<ul class="goal-list">
+<li>Reconnaître la logique d’un tri à partir d’une situation concrète.</li>
+<li>Différencier clairement le tri à bulles, le tri par sélection et le tri par insertion.</li>
+<li>Compléter correctement des fragments de code Python liés aux trois méthodes.</li>
+<li>Tester des scripts simples dans VS Code ou dans l’environnement Python utilisé en classe.</li>
+<li>Choisir une méthode de tri cohérente selon le besoin demandé.</li>
+<li>Reformuler une méthode de tri en langage simple, étape par étape.</li>
+</ul>
+</div>
+</section>
+</header>
+
+<section class="part" id="partie-1">
+<div class="part-header"><h2 class="part-title">Partie 1 — Reconnaître un tri dans la vie courante</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Avant de coder : repérer la logique d’action</h3>
+<div class="section-body">
+<p>Avant de toucher au code, il faut être capable d’identifier la méthode de tri à partir du comportement observé. Les trois scénarios ci-dessous reprennent des gestes que l’on fait déjà dans la vie courante. Pour chacun, cochez la méthode qui correspond le mieux à la logique décrite.</p>
+<div class="callout spaced-block lesson-callout"><strong>Rappel utile :</strong> on ne cherche pas la difficulté mathématique, mais le geste de tri réellement appliqué : comparer des voisins, chercher le plus petit restant, ou insérer une valeur à sa bonne place.</div>
+
+<section class="section-block qcm-block">
+<h3 class="section-title"><span class="qcm-badge">Scénario 1</span></h3>
+<div class="section-body">
+<p class="qcm-question">Tu passes plusieurs fois sur une rangée de boîtes. À chaque fois, tu compares deux boîtes voisines et tu les échanges si celle de gauche doit aller après celle de droite.</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="scenario_q1" type="radio" value="A"/><span class="qcm-option-text">Tri à bulles</span></label>
+<label class="qcm-option"><input name="scenario_q1" type="radio" value="B"/><span class="qcm-option-text">Tri par sélection</span></label>
+<label class="qcm-option"><input name="scenario_q1" type="radio" value="C"/><span class="qcm-option-text">Tri par insertion</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block">
+<h3 class="section-title"><span class="qcm-badge">Scénario 2</span></h3>
+<div class="section-body">
+<p class="qcm-question">Tu veux ranger des prix du plus petit au plus grand. À chaque tour, tu cherches le plus petit prix encore non placé, puis tu le mets directement à la prochaine position correcte.</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="scenario_q2" type="radio" value="A"/><span class="qcm-option-text">Tri à bulles</span></label>
+<label class="qcm-option"><input name="scenario_q2" type="radio" value="B"/><span class="qcm-option-text">Tri par sélection</span></label>
+<label class="qcm-option"><input name="scenario_q2" type="radio" value="C"/><span class="qcm-option-text">Tri par insertion</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block">
+<h3 class="section-title"><span class="qcm-badge">Scénario 3</span></h3>
+<div class="section-body">
+<p class="qcm-question">Tu as déjà des cartes bien rangées dans ta main. Tu prends une nouvelle carte et tu la glisses exactement à la bonne place parmi celles déjà triées.</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="scenario_q3" type="radio" value="A"/><span class="qcm-option-text">Tri à bulles</span></label>
+<label class="qcm-option"><input name="scenario_q3" type="radio" value="B"/><span class="qcm-option-text">Tri par sélection</span></label>
+<label class="qcm-option"><input name="scenario_q3" type="radio" value="C"/><span class="qcm-option-text">Tri par insertion</span></label>
+</div>
+</div>
+</section>
+
+<div class="callout spaced-block">
+<strong>À saisir :</strong> quel indice concret vous aide le plus à distinguer ces trois méthodes : le mot « voisin », la recherche du minimum ou l’idée d’insérer une valeur dans une partie déjà triée ?
+<div class="answer-area">
+<textarea class="team-input answerbox-large" id="p1-answer" placeholder="Écris ici ta réponse..."></textarea>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-2">
+<div class="part-header"><h2 class="part-title">Partie 2 — Reformuler la logique des trois méthodes</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Dire la méthode avec ses propres mots</h3>
+<div class="section-body">
+<p>Un étudiant maîtrise mieux un tri lorsqu’il peut l’expliquer simplement sans réciter le cours mot à mot. Reformulez chaque méthode dans vos propres mots en insistant sur l’action principale.</p>
+<div class="method-grid">
+<article class="method-card">
+<h4>Tri à bulles</h4>
+<p><span class="method-chip">Idée-clé</span></p>
+<ul class="mini-checklist">
+<li>Comparer des voisins.</li>
+<li>Échanger si l’ordre est mauvais.</li>
+<li>Recommencer par passages successifs.</li>
+</ul>
+</article>
+<article class="method-card">
+<h4>Tri par sélection</h4>
+<p><span class="method-chip">Idée-clé</span></p>
+<ul class="mini-checklist">
+<li>Chercher le plus petit élément restant.</li>
+<li>Le placer au bon endroit.</li>
+<li>Répéter sur la partie non triée.</li>
+</ul>
+</article>
+<article class="method-card">
+<h4>Tri par insertion</h4>
+<p><span class="method-chip">Idée-clé</span></p>
+<ul class="mini-checklist">
+<li>Considérer une partie déjà triée.</li>
+<li>Prendre une nouvelle valeur.</li>
+<li>L’insérer à la bonne place.</li>
+</ul>
+</article>
+</div>
+<div class="table-wrap spaced-block">
+<table class="compare-table">
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Action visible</th>
+<th>Votre reformulation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tri à bulles</strong></td>
+<td>Des échanges locaux entre voisins.</td>
+<td><textarea class="answerbox-small" placeholder="Reformule ici..."></textarea></td>
+</tr>
+<tr>
+<td><strong>Tri par sélection</strong></td>
+<td>On choisit le minimum restant puis on le place.</td>
+<td><textarea class="answerbox-small" placeholder="Reformule ici..."></textarea></td>
+</tr>
+<tr>
+<td><strong>Tri par insertion</strong></td>
+<td>On insère une valeur dans une zone déjà triée.</td>
+<td><textarea class="answerbox-small" placeholder="Reformule ici..."></textarea></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout spaced-block">
+<strong>Question courte :</strong> parmi les trois méthodes, laquelle vous semble la plus naturelle dans la vie quotidienne, et pourquoi ?
+<div class="answer-area">
+<textarea class="team-input answerbox-medium" id="p2-answer" placeholder="Écris ici ta réponse..."></textarea>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-3">
+<div class="part-header"><h2 class="part-title">Partie 3 — Compléter du code incomplet</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Compléter les zones manquantes</h3>
+<div class="section-body">
+<p>Dans cette partie, vous ne créez pas encore un grand programme. Vous complétez d’abord les éléments essentiels du code. Le but est de vérifier que vous avez compris <em>la logique</em> de chaque méthode.</p>
+<div class="callout spaced-block warning-callout"><strong>Consigne :</strong> recopiez chaque fragment dans votre environnement Python, complétez les blancs, puis testez-le avec une petite liste de votre choix.</div>
+
+<h4 class="subsection-title">A. Tri à bulles</h4>
+<div class="subsection-body">
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_bulles_incomplet.py</div></div><div class="code-body"><div class="terminal-intro">Python — code incomplet à compléter</div><div class="code-content"><div class="line"><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_bulles</span>(<span class="param">valeurs</span>):</span></div><div class="line"><span class="line-no">2</span><span class="line-text">    <span class="default">n = </span><span class="builtin">len</span>(<span class="default">valeurs</span>)</span></div><div class="line"><span class="line-no">3</span><span class="line-text">    <span class="keyword">for</span> <span class="default">passage</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">_____</span>):</span></div><div class="line"><span class="line-no">4</span><span class="line-text">        <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">_____</span>):</span></div><div class="line"><span class="line-no">5</span><span class="line-text">            <span class="keyword">if</span> <span class="default">valeurs[i] &gt; valeurs[i + 1]</span>:</span></div><div class="line"><span class="line-no">6</span><span class="line-text">                <span class="default">valeurs[i], valeurs[i + 1] = ____________</span></span></div><div class="line"><span class="line-no">7</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div></div></div></section></section>
+<div class="blank-note">Complétez les trois zones manquantes, puis expliquez en une phrase pourquoi la boucle interne diminue à chaque passage.</div>
+<div class="answer-area"><textarea class="answerbox-medium" id="p3-bulles-answer" placeholder="Écris ici ta justification..."></textarea></div>
+</div>
+
+<h4 class="subsection-title">B. Tri par sélection</h4>
+<div class="subsection-body">
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_selection_incomplet.py</div></div><div class="code-body"><div class="terminal-intro">Python — code incomplet à compléter</div><div class="code-content"><div class="line"><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_selection</span>(<span class="param">valeurs</span>):</span></div><div class="line"><span class="line-no">2</span><span class="line-text">    <span class="default">n = </span><span class="builtin">len</span>(<span class="default">valeurs</span>)</span></div><div class="line"><span class="line-no">3</span><span class="line-text">    <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">n - 1</span>):</span></div><div class="line"><span class="line-no">4</span><span class="line-text">        <span class="default">indice_min = i</span></span></div><div class="line"><span class="line-no">5</span><span class="line-text">        <span class="keyword">for</span> <span class="default">j</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">i + 1, n</span>):</span></div><div class="line"><span class="line-no">6</span><span class="line-text">            <span class="keyword">if</span> <span class="default">valeurs[j] &lt; valeurs[indice_min]</span>:</span></div><div class="line"><span class="line-no">7</span><span class="line-text">                <span class="default">indice_min = _____</span></span></div><div class="line"><span class="line-no">8</span><span class="line-text">        <span class="default">valeurs[i], valeurs[indice_min] = ____________</span></span></div><div class="line"><span class="line-no">9</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div></div></div></section></section>
+<div class="blank-note">Complétez les deux zones manquantes, puis indiquez ce que représente exactement <strong>indice_min</strong>.</div>
+<div class="answer-area"><textarea class="answerbox-medium" id="p3-selection-answer" placeholder="Écris ici ta justification..."></textarea></div>
+</div>
+
+<h4 class="subsection-title">C. Tri par insertion</h4>
+<div class="subsection-body">
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_insertion_incomplet.py</div></div><div class="code-body"><div class="terminal-intro">Python — code incomplet à compléter</div><div class="code-content"><div class="line"><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_insertion</span>(<span class="param">valeurs</span>):</span></div><div class="line"><span class="line-no">2</span><span class="line-text">    <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">1</span>, <span class="builtin">len</span>(<span class="default">valeurs</span>)):</span></div><div class="line"><span class="line-no">3</span><span class="line-text">        <span class="default">cle = valeurs[i]</span></span></div><div class="line"><span class="line-no">4</span><span class="line-text">        <span class="default">j = i - 1</span></span></div><div class="line"><span class="line-no">5</span><span class="line-text">        <span class="keyword">while</span> <span class="default">j &gt;= 0 and valeurs[j] &gt; cle</span>:</span></div><div class="line"><span class="line-no">6</span><span class="line-text">            <span class="default">valeurs[j + 1] = valeurs[j]</span></span></div><div class="line"><span class="line-no">7</span><span class="line-text">            <span class="default">j = _____</span></span></div><div class="line"><span class="line-no">8</span><span class="line-text">        <span class="default">valeurs[_____] = cle</span></span></div><div class="line"><span class="line-no">9</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div></div></div></section></section>
+<div class="blank-note">Complétez les deux zones manquantes, puis expliquez ce que fait la variable <strong>cle</strong> pendant l’algorithme.</div>
+<div class="answer-area"><textarea class="answerbox-medium" id="p3-insertion-answer" placeholder="Écris ici ta justification..."></textarea></div>
+</div>
+
+<div class="proof callout spaced-block" data-proof-id="p3-proof">
+<div class="proof-head">
+<div><strong>Capture obligatoire :</strong> montrez dans VS Code ou dans votre environnement Python au moins un des trois codes complétés, avec les blancs remplacés correctement.</div>
+</div>
+<div class="proof-body" tabindex="0" title="Cliquez ici puis collez une image depuis le presse-papiers avec Ctrl+V">
+<div class="proofEmpty">
+<button class="btnCapture proofInsertLink" type="button">Insérer</button>
+      ici la capture demandée.
+      <div class="proofPasteHint">ou collez une image enregistrée dans le presse-papiers avec Ctrl+V.</div>
+</div>
+<img alt="Capture de l’étudiant" class="proofImg"/>
+<input accept="image/*" class="proofFile" hidden="" type="file"/>
+<div class="proofBodyActions"><button class="btnClear proofRemoveLink" type="button">retirer la capture</button></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-4">
+<div class="part-header"><h2 class="part-title">Partie 4 — Pratiquer avec des exemples simples</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Tester les trois méthodes sur des données concrètes</h3>
+<div class="section-body">
+<p>Vous allez maintenant pratiquer les trois méthodes sur des listes simples et proches d’exemples réels. L’idée n’est pas de faire des cas compliqués, mais d’être capable d’adapter rapidement la méthode selon le besoin.</p>
+
+<h4 class="subsection-title">A. Notes d’élèves — tri à bulles</h4>
+<div class="subsection-body">
+<p>On veut ranger les notes suivantes du plus petit au plus grand : <strong>[14, 10, 17, 12, 15]</strong>.</p>
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_bulles_notes.py</div><button class="copy-btn" data-copy-target="py-bulles" type="button">Copier</button></div><div class="code-body"><div class="terminal-intro">Python — script à tester dans VS Code</div><div class="code-content" id="py-bulles"><div class="line" data-help-title="Définition de la fonction" data-help-role="Cette ligne ouvre la fonction qui regroupe toute la logique du tri à bulles."><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_bulles</span>(<span class="param">valeurs</span>):</span></div><div class="line" data-copy="    n = len(valeurs)" data-help-title="Taille de la liste" data-help-role="On calcule le nombre de valeurs pour savoir combien de passages seront nécessaires."><span class="line-no">2</span><span class="line-text">    <span class="default">n = </span><span class="builtin">len</span>(<span class="default">valeurs</span>)</span></div><div class="line" data-copy="    for passage in range(n - 1):" data-help-title="Passages successifs" data-help-role="Chaque passage pousse progressivement la plus grande valeur restante vers la droite."><span class="line-no">3</span><span class="line-text">    <span class="keyword">for</span> <span class="default">passage</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">n - 1</span>):</span></div><div class="line" data-copy="        for i in range(n - 1 - passage):" data-help-title="Comparaison des voisins" data-help-role="On compare les voisins uniquement dans la partie encore non triée de la liste."><span class="line-no">4</span><span class="line-text">        <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">n - 1 - passage</span>):</span></div><div class="line" data-copy="            if valeurs[i] &gt; valeurs[i + 1]:" data-help-title="Test de permutation" data-help-role="Si la valeur de gauche est plus grande, on doit permuter les deux cases."><span class="line-no">5</span><span class="line-text">            <span class="keyword">if</span> <span class="default">valeurs[i] &gt; valeurs[i + 1]</span>:</span></div><div class="line" data-copy="                valeurs[i], valeurs[i + 1] = valeurs[i + 1], valeurs[i]" data-help-title="Permutation" data-help-role="Cette ligne échange réellement les deux voisins mal placés."><span class="line-no">6</span><span class="line-text">                <span class="default">valeurs[i], valeurs[i + 1] = valeurs[i + 1], valeurs[i]</span></span></div><div class="line" data-copy="    return valeurs" data-help-title="Résultat final" data-help-role="La fonction renvoie la liste triée dans l’ordre croissant."><span class="line-no">7</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div><div class="line" data-copy=""><span class="line-no">8</span><span class="line-text">&nbsp;</span></div><div class="line" data-copy="notes = [14, 10, 17, 12, 15]" data-help-title="Liste à trier" data-help-role="Vous pouvez modifier cette liste pour refaire le test avec vos propres valeurs."><span class="line-no">9</span><span class="line-text"><span class="default">notes = [</span><span class="number">14</span><span class="default">, </span><span class="number">10</span><span class="default">, </span><span class="number">17</span><span class="default">, </span><span class="number">12</span><span class="default">, </span><span class="number">15</span><span class="default">]</span></span></div><div class="line" data-copy="print(&quot;Notes triées :&quot;, tri_bulles(notes.copy()))" data-help-title="Affichage" data-help-role="Cette ligne affiche le résultat final du tri à bulles dans la console."><span class="line-no">10</span><span class="line-text"><span class="builtin">print</span>(<span class="string">"Notes triées :"</span>, <span class="function">tri_bulles</span>(<span class="default">notes.copy()</span>))</span></div></div></div></section></section>
+<div class="codewrap">
+<div class="codebar">
+<span class="codelabel">Commande à taper</span>
+<button class="copybtn" data-copy-target="cmd-run-python" type="button">Copier</button>
+</div>
+<pre class="shell" id="cmd-run-python"><span class="prompt">&gt; </span>python tri_pratique.py</pre>
+</div>
+<div class="resultblock">
+<div aria-label="Affichage sur écran" class="pcframe screen-m">
+<div class="pcinner">
+<pre class="shell resultpre">Exemple de résultat attendu
+Notes triées : [10, 12, 14, 15, 17]</pre>
+</div>
+</div>
+</div>
+<div class="callout spaced-block"><strong>À faire :</strong> exécutez le script, remplacez ensuite la liste par cinq autres notes, puis relancez le test.</div>
+<div class="proof callout spaced-block" data-proof-id="p4-proof-bulles">
+<div class="proof-head">
+<div><strong>Capture obligatoire :</strong> montrez l’exécution du script du tri à bulles avec la liste initiale ou une liste modifiée par votre équipe.</div>
+</div>
+<div class="proof-body" tabindex="0" title="Cliquez ici puis collez une image depuis le presse-papiers avec Ctrl+V">
+<div class="proofEmpty">
+<button class="btnCapture proofInsertLink" type="button">Insérer</button>
+      ici la capture demandée.
+      <div class="proofPasteHint">ou collez une image enregistrée dans le presse-papiers avec Ctrl+V.</div>
+</div>
+<img alt="Capture de l’étudiant" class="proofImg"/>
+<input accept="image/*" class="proofFile" hidden="" type="file"/>
+<div class="proofBodyActions"><button class="btnClear proofRemoveLink" type="button">retirer la capture</button></div>
+</div>
+</div>
+<div class="callout spaced-block">
+<strong>À saisir :</strong> pourquoi le tri à bulles est-il facile à suivre visuellement lorsqu’on veut observer des échanges entre deux voisins ?
+<div class="answer-area"><textarea class="answerbox-medium" id="p4-bulles-answer" placeholder="Écris ici ta réponse..."></textarea></div>
+</div>
+</div>
+
+<h4 class="subsection-title">B. Prix de produits — tri par sélection</h4>
+<div class="subsection-body">
+<p>On veut classer des prix du moins cher au plus cher : <strong>[59, 29, 35, 41, 18]</strong>.</p>
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_selection_prix.py</div><button class="copy-btn" data-copy-target="py-selection" type="button">Copier</button></div><div class="code-body"><div class="terminal-intro">Python — script à tester dans VS Code</div><div class="code-content" id="py-selection"><div class="line" data-help-title="Définition de la fonction" data-help-role="Cette ligne ouvre la fonction du tri par sélection."><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_selection</span>(<span class="param">valeurs</span>):</span></div><div class="line" data-copy="    n = len(valeurs)" data-help-title="Taille de la liste" data-help-role="On calcule la longueur totale de la liste."><span class="line-no">2</span><span class="line-text">    <span class="default">n = </span><span class="builtin">len</span>(<span class="default">valeurs</span>)</span></div><div class="line" data-copy="    for i in range(n - 1):" data-help-title="Position à remplir" data-help-role="À chaque tour, on cherche quelle valeur minimale doit être placée à la position i."><span class="line-no">3</span><span class="line-text">    <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">n - 1</span>):</span></div><div class="line" data-copy="        indice_min = i" data-help-title="Minimum provisoire" data-help-role="On suppose d’abord que la case courante contient le minimum."><span class="line-no">4</span><span class="line-text">        <span class="default">indice_min = i</span></span></div><div class="line" data-copy="        for j in range(i + 1, n):" data-help-title="Recherche du minimum" data-help-role="On parcourt le reste de la liste pour trouver une valeur plus petite."><span class="line-no">5</span><span class="line-text">        <span class="keyword">for</span> <span class="default">j</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="default">i + 1, n</span>):</span></div><div class="line" data-copy="            if valeurs[j] &lt; valeurs[indice_min]:" data-help-title="Test du plus petit" data-help-role="Si on trouve plus petit, on mémorise son indice."><span class="line-no">6</span><span class="line-text">            <span class="keyword">if</span> <span class="default">valeurs[j] &lt; valeurs[indice_min]</span>:</span></div><div class="line" data-copy="                indice_min = j" data-help-title="Mise à jour" data-help-role="L’indice du minimum change dès qu’une valeur plus petite est trouvée."><span class="line-no">7</span><span class="line-text">                <span class="default">indice_min = j</span></span></div><div class="line" data-copy="        valeurs[i], valeurs[indice_min] = valeurs[indice_min], valeurs[i]" data-help-title="Placement du minimum" data-help-role="À la fin du tour, on place le minimum trouvé au bon endroit."><span class="line-no">8</span><span class="line-text">        <span class="default">valeurs[i], valeurs[indice_min] = valeurs[indice_min], valeurs[i]</span></span></div><div class="line" data-copy="    return valeurs" data-help-title="Résultat final" data-help-role="La fonction renvoie la liste triée."><span class="line-no">9</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div><div class="line" data-copy=""><span class="line-no">10</span><span class="line-text">&nbsp;</span></div><div class="line" data-copy="prix = [59, 29, 35, 41, 18]" data-help-title="Liste à trier" data-help-role="Cette liste représente des prix que l’on veut ranger du plus petit au plus grand."><span class="line-no">11</span><span class="line-text"><span class="default">prix = [</span><span class="number">59</span><span class="default">, </span><span class="number">29</span><span class="default">, </span><span class="number">35</span><span class="default">, </span><span class="number">41</span><span class="default">, </span><span class="number">18</span><span class="default">]</span></span></div><div class="line" data-copy="print(&quot;Prix triés :&quot;, tri_selection(prix.copy()))" data-help-title="Affichage" data-help-role="La console affiche le résultat final du tri par sélection."><span class="line-no">12</span><span class="line-text"><span class="builtin">print</span>(<span class="string">"Prix triés :"</span>, <span class="function">tri_selection</span>(<span class="default">prix.copy()</span>))</span></div></div></div></section></section>
+<div class="resultblock">
+<div aria-label="Affichage sur écran" class="pcframe screen-m">
+<div class="pcinner">
+<pre class="shell resultpre">Exemple de résultat attendu
+Prix triés : [18, 29, 35, 41, 59]</pre>
+</div>
+</div>
+</div>
+<div class="callout spaced-block"><strong>À faire :</strong> exécutez le script, puis notez quelle valeur est placée en premier après le tout premier passage.</div>
+<div class="proof callout spaced-block" data-proof-id="p4-proof-selection">
+<div class="proof-head">
+<div><strong>Capture obligatoire :</strong> montrez l’exécution du tri par sélection avec la liste des prix et le résultat final visible dans la console.</div>
+</div>
+<div class="proof-body" tabindex="0" title="Cliquez ici puis collez une image depuis le presse-papiers avec Ctrl+V">
+<div class="proofEmpty">
+<button class="btnCapture proofInsertLink" type="button">Insérer</button>
+      ici la capture demandée.
+      <div class="proofPasteHint">ou collez une image enregistrée dans le presse-papiers avec Ctrl+V.</div>
+</div>
+<img alt="Capture de l’étudiant" class="proofImg"/>
+<input accept="image/*" class="proofFile" hidden="" type="file"/>
+<div class="proofBodyActions"><button class="btnClear proofRemoveLink" type="button">retirer la capture</button></div>
+</div>
+</div>
+<div class="callout spaced-block">
+<strong>À saisir :</strong> dans cet exemple, qu’est-ce qui montre bien la logique « je cherche le plus petit restant puis je le place » ?
+<div class="answer-area"><textarea class="answerbox-medium" id="p4-selection-answer" placeholder="Écris ici ta réponse..."></textarea></div>
+</div>
+</div>
+
+<h4 class="subsection-title">C. Horaires de passage — tri par insertion</h4>
+<div class="subsection-body">
+<p>On veut ranger des heures de passage : <strong>[13, 8, 16, 10, 11]</strong>.</p>
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">tri_insertion_horaires.py</div><button class="copy-btn" data-copy-target="py-insertion" type="button">Copier</button></div><div class="code-body"><div class="terminal-intro">Python — script à tester dans VS Code</div><div class="code-content" id="py-insertion"><div class="line" data-help-title="Définition de la fonction" data-help-role="Cette ligne ouvre la fonction du tri par insertion."><span class="line-no">1</span><span class="line-text"><span class="keyword">def</span> <span class="function">tri_insertion</span>(<span class="param">valeurs</span>):</span></div><div class="line" data-copy="    for i in range(1, len(valeurs)):" data-help-title="Parcours à partir du deuxième élément" data-help-role="On part du deuxième élément car le premier est considéré comme déjà trié."><span class="line-no">2</span><span class="line-text">    <span class="keyword">for</span> <span class="default">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">1</span>, <span class="builtin">len</span>(<span class="default">valeurs</span>)):</span></div><div class="line" data-copy="        cle = valeurs[i]" data-help-title="Valeur à insérer" data-help-role="La clé est la valeur que l’on doit replacer au bon endroit."><span class="line-no">3</span><span class="line-text">        <span class="default">cle = valeurs[i]</span></span></div><div class="line" data-copy="        j = i - 1" data-help-title="Indice de comparaison" data-help-role="On commence la comparaison juste avant la clé."><span class="line-no">4</span><span class="line-text">        <span class="default">j = i - 1</span></span></div><div class="line" data-copy="        while j &gt;= 0 and valeurs[j] &gt; cle:" data-help-title="Décalage vers la droite" data-help-role="Tant que les éléments précédents sont plus grands, on les décale."><span class="line-no">5</span><span class="line-text">        <span class="keyword">while</span> <span class="default">j &gt;= 0 and valeurs[j] &gt; cle</span>:</span></div><div class="line" data-copy="            valeurs[j + 1] = valeurs[j]" data-help-title="Décalage" data-help-role="Cette ligne libère progressivement la bonne place pour la clé."><span class="line-no">6</span><span class="line-text">            <span class="default">valeurs[j + 1] = valeurs[j]</span></span></div><div class="line" data-copy="            j -= 1" data-help-title="Retour vers la gauche" data-help-role="On continue à remonter la partie déjà triée."><span class="line-no">7</span><span class="line-text">            <span class="default">j -= 1</span></span></div><div class="line" data-copy="        valeurs[j + 1] = cle" data-help-title="Insertion finale" data-help-role="Quand la bonne place est trouvée, on insère la clé."><span class="line-no">8</span><span class="line-text">        <span class="default">valeurs[j + 1] = cle</span></span></div><div class="line" data-copy="    return valeurs" data-help-title="Résultat final" data-help-role="La fonction renvoie la liste triée."><span class="line-no">9</span><span class="line-text">    <span class="keyword">return</span> <span class="default">valeurs</span></span></div><div class="line" data-copy=""><span class="line-no">10</span><span class="line-text">&nbsp;</span></div><div class="line" data-copy="horaires = [13, 8, 16, 10, 11]" data-help-title="Liste à trier" data-help-role="Ici, on trie des heures de passage du plus petit au plus grand."><span class="line-no">11</span><span class="line-text"><span class="default">horaires = [</span><span class="number">13</span><span class="default">, </span><span class="number">8</span><span class="default">, </span><span class="number">16</span><span class="default">, </span><span class="number">10</span><span class="default">, </span><span class="number">11</span><span class="default">]</span></span></div><div class="line" data-copy="print(&quot;Horaires triés :&quot;, tri_insertion(horaires.copy()))" data-help-title="Affichage" data-help-role="Cette ligne montre le résultat final du tri par insertion."><span class="line-no">12</span><span class="line-text"><span class="builtin">print</span>(<span class="string">"Horaires triés :"</span>, <span class="function">tri_insertion</span>(<span class="default">horaires.copy()</span>))</span></div></div></div></section></section>
+<div class="resultblock">
+<div aria-label="Affichage sur écran" class="pcframe screen-m">
+<div class="pcinner">
+<pre class="shell resultpre">Exemple de résultat attendu
+Horaires triés : [8, 10, 11, 13, 16]</pre>
+</div>
+</div>
+</div>
+<div class="callout spaced-block"><strong>À faire :</strong> exécutez le script, puis changez une valeur de la liste pour vérifier que l’insertion replace bien la clé au bon endroit.</div>
+<div class="proof callout spaced-block" data-proof-id="p4-proof-insertion">
+<div class="proof-head">
+<div><strong>Capture obligatoire :</strong> montrez l’exécution du tri par insertion avec le résultat final visible dans la console.</div>
+</div>
+<div class="proof-body" tabindex="0" title="Cliquez ici puis collez une image depuis le presse-papiers avec Ctrl+V">
+<div class="proofEmpty">
+<button class="btnCapture proofInsertLink" type="button">Insérer</button>
+      ici la capture demandée.
+      <div class="proofPasteHint">ou collez une image enregistrée dans le presse-papiers avec Ctrl+V.</div>
+</div>
+<img alt="Capture de l’étudiant" class="proofImg"/>
+<input accept="image/*" class="proofFile" hidden="" type="file"/>
+<div class="proofBodyActions"><button class="btnClear proofRemoveLink" type="button">retirer la capture</button></div>
+</div>
+</div>
+<div class="callout spaced-block">
+<strong>À saisir :</strong> pourquoi dit-on souvent que le tri par insertion ressemble à un rangement « carte par carte » ?
+<div class="answer-area"><textarea class="answerbox-medium" id="p4-insertion-answer" placeholder="Écris ici ta réponse..."></textarea></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-5">
+<div class="part-header"><h2 class="part-title">Partie 5 — Choisir la bonne méthode selon le besoin</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Adapter la méthode au contexte</h3>
+<div class="section-body">
+<p>Maîtriser un tri, c’est aussi savoir expliquer quel procédé convient le mieux à une situation donnée. Ici, vous devez choisir la méthode la plus logique et la justifier simplement.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Besoin</th>
+<th>Méthode la plus logique</th>
+<th>Justification courte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On observe surtout des échanges entre deux éléments voisins.</td>
+<td><textarea class="answerbox-small" placeholder="Nom de la méthode..."></textarea></td>
+<td><textarea class="answerbox-small" placeholder="Explique en une ou deux phrases..."></textarea></td>
+</tr>
+<tr>
+<td>On veut, à chaque tour, placer le plus petit élément restant au bon endroit.</td>
+<td><textarea class="answerbox-small" placeholder="Nom de la méthode..."></textarea></td>
+<td><textarea class="answerbox-small" placeholder="Explique en une ou deux phrases..."></textarea></td>
+</tr>
+<tr>
+<td>La liste se construit progressivement comme si une nouvelle valeur entrait dans une zone déjà triée.</td>
+<td><textarea class="answerbox-small" placeholder="Nom de la méthode..."></textarea></td>
+<td><textarea class="answerbox-small" placeholder="Explique en une ou deux phrases..."></textarea></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout spaced-block final-callout"><strong>Mini-défi :</strong> choisissez une des trois méthodes et reformulez-la sous forme de procédure personnelle claire, comme si vous l’expliquiez à un camarade absent.</div>
+<section class="snippet-embed"><section class="code-window theme-python"><div class="window-header"><div class="window-controls"><span></span><span></span><span></span></div><div class="window-title">mini_defi_tri.py</div></div><div class="code-body"><div class="terminal-intro">Python — point de départ du mini-défi</div><div class="code-content"><div class="line" data-help-title="Liste du défi" data-help-role="Cette liste servira pour votre reformulation personnelle de la méthode choisie."><span class="line-no">1</span><span class="line-text"><span class="default">donnees = [</span><span class="number">21</span><span class="default">, </span><span class="number">18</span><span class="default">, </span><span class="number">19</span><span class="default">, </span><span class="number">17</span><span class="default">, </span><span class="number">20</span><span class="default">]</span></span></div><div class="line"><span class="line-no">2</span><span class="line-text"><span class="comment"># Choisis une méthode de tri et adapte le code déjà étudié.</span></span></div><div class="line"><span class="line-no">3</span><span class="line-text"><span class="comment"># Nomme clairement ta fonction.</span></span></div><div class="line"><span class="line-no">4</span><span class="line-text"><span class="comment"># Affiche le résultat final dans la console.</span></span></div></div></div></section></section>
+<div class="codewrap">
+<div class="codebar">
+<span class="codelabel">Commande à taper</span>
+<button class="copybtn" data-copy-target="cmd-mini-python" type="button">Copier</button>
+</div>
+<pre class="shell" id="cmd-mini-python"><span class="prompt">&gt; </span>python mini_defi_tri.py</pre>
+</div>
+<div class="proof callout spaced-block" data-proof-id="p5-proof">
+<div class="proof-head">
+<div><strong>Capture obligatoire :</strong> montrez votre fichier du mini-défi ouvert dans VS Code ou son exécution dans la console après adaptation de la méthode choisie.</div>
+</div>
+<div class="proof-body" tabindex="0" title="Cliquez ici puis collez une image depuis le presse-papiers avec Ctrl+V">
+<div class="proofEmpty">
+<button class="btnCapture proofInsertLink" type="button">Insérer</button>
+      ici la capture demandée.
+      <div class="proofPasteHint">ou collez une image enregistrée dans le presse-papiers avec Ctrl+V.</div>
+</div>
+<img alt="Capture de l’étudiant" class="proofImg"/>
+<input accept="image/*" class="proofFile" hidden="" type="file"/>
+<div class="proofBodyActions"><button class="btnClear proofRemoveLink" type="button">retirer la capture</button></div>
+</div>
+</div>
+<div class="callout spaced-block">
+<strong>À saisir :</strong> écrivez votre reformulation personnelle d’une méthode de tri au complet, étape par étape, sans recopier mot à mot la leçon.
+<div class="answer-area"><textarea class="team-input answerbox-large" id="p5-answer" placeholder="Écris ici ta reformulation..."></textarea></div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-6">
+<div class="part-header"><h2 class="part-title">Partie 6 — Bilan final</h2></div>
+<div class="part-body">
+<section class="section-block line-section">
+<h3 class="section-title">Vérifier ce que vous savez maintenant faire</h3>
+<div class="section-body">
+<ul>
+<li>reconnaître la logique des trois méthodes de tri ;</li>
+<li>compléter un code incomplet ;</li>
+<li>tester une version Python simple ;</li>
+<li>choisir la bonne méthode selon un besoin concret ;</li>
+<li>reformuler clairement une méthode avec vos propres mots.</li>
+</ul>
+<div class="table-wrap">
+<table class="capture-checklist-table">
+<thead>
+<tr>
+<th>Capture obligatoire</th>
+<th>Ce que la capture doit montrer</th>
+<th>Insérée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code incomplet complété</td>
+<td>Au moins un des trois fragments complétés correctement dans votre environnement.</td>
+<td class="check-cell"><input aria-label="Code incomplet complété" class="capture-check" data-proof-target="p3-proof" type="checkbox"/></td>
+</tr>
+<tr>
+<td>Tri à bulles</td>
+<td>L’exécution du script du tri à bulles.</td>
+<td class="check-cell"><input aria-label="Tri à bulles" class="capture-check" data-proof-target="p4-proof-bulles" type="checkbox"/></td>
+</tr>
+<tr>
+<td>Tri par sélection</td>
+<td>L’exécution du script du tri par sélection.</td>
+<td class="check-cell"><input aria-label="Tri par sélection" class="capture-check" data-proof-target="p4-proof-selection" type="checkbox"/></td>
+</tr>
+<tr>
+<td>Tri par insertion</td>
+<td>L’exécution du script du tri par insertion.</td>
+<td class="check-cell"><input aria-label="Tri par insertion" class="capture-check" data-proof-target="p4-proof-insertion" type="checkbox"/></td>
+</tr>
+<tr>
+<td>Mini-défi</td>
+<td>Votre propre adaptation d’une méthode ou son exécution.</td>
+<td class="check-cell"><input aria-label="Mini-défi" class="capture-check" data-proof-target="p5-proof" type="checkbox"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout spaced-block">
+<strong>À saisir :</strong> quelle différence vous paraît désormais la plus importante entre les trois méthodes de tri ?
+<div class="answer-area"><textarea class="team-input answerbox-large" id="p6-answer" placeholder="Écris ici ta synthèse..."></textarea></div>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="part" id="partie-qcm">
+<div class="part-header"><h2 class="part-title">QCM de validation</h2></div>
+<div class="part-body">
+<div class="callout spaced-block qcm-intro"><strong>Consigne :</strong> cochez la bonne réponse pour chaque question. Une seule réponse est correcte par question.</div>
+
+<section class="section-block qcm-block" data-correct="A">
+<h3 class="section-title"><span class="qcm-badge">Question 1</span></h3>
+<div class="section-body">
+<p class="qcm-question">Quelle méthode repose surtout sur des comparaisons entre éléments voisins suivies d’échanges éventuels ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q1" type="radio" value="A"/><span class="qcm-option-text">Tri à bulles</span></label>
+<label class="qcm-option"><input name="qcm_q1" type="radio" value="B"/><span class="qcm-option-text">Tri par sélection</span></label>
+<label class="qcm-option"><input name="qcm_q1" type="radio" value="C"/><span class="qcm-option-text">Tri par insertion</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block" data-correct="B">
+<h3 class="section-title"><span class="qcm-badge">Question 2</span></h3>
+<div class="section-body">
+<p class="qcm-question">Dans le tri par sélection, que fait-on principalement à chaque passage ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q2" type="radio" value="A"/><span class="qcm-option-text">On insère une nouvelle valeur dans une zone déjà triée.</span></label>
+<label class="qcm-option"><input name="qcm_q2" type="radio" value="B"/><span class="qcm-option-text">On cherche le plus petit élément restant puis on le place.</span></label>
+<label class="qcm-option"><input name="qcm_q2" type="radio" value="C"/><span class="qcm-option-text">On compare toujours seulement le premier et le dernier élément.</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block" data-correct="C">
+<h3 class="section-title"><span class="qcm-badge">Question 3</span></h3>
+<div class="section-body">
+<p class="qcm-question">Quelle méthode ressemble le plus à l’action de glisser une nouvelle carte dans une main déjà ordonnée ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q3" type="radio" value="A"/><span class="qcm-option-text">Tri à bulles</span></label>
+<label class="qcm-option"><input name="qcm_q3" type="radio" value="B"/><span class="qcm-option-text">Tri par sélection</span></label>
+<label class="qcm-option"><input name="qcm_q3" type="radio" value="C"/><span class="qcm-option-text">Tri par insertion</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block" data-correct="A">
+<h3 class="section-title"><span class="qcm-badge">Question 4</span></h3>
+<div class="section-body">
+<p class="qcm-question">Dans le tri à bulles, pourquoi la boucle interne peut-elle diminuer à chaque passage ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q4" type="radio" value="A"/><span class="qcm-option-text">Parce que la plus grande valeur de la zone non triée finit progressivement à droite.</span></label>
+<label class="qcm-option"><input name="qcm_q4" type="radio" value="B"/><span class="qcm-option-text">Parce qu’on supprime une valeur à chaque passage.</span></label>
+<label class="qcm-option"><input name="qcm_q4" type="radio" value="C"/><span class="qcm-option-text">Parce que la liste est divisée en deux sous-listes égales.</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block" data-correct="B">
+<h3 class="section-title"><span class="qcm-badge">Question 5</span></h3>
+<div class="section-body">
+<p class="qcm-question">Dans le tri par insertion, à quoi sert la variable <strong>cle</strong> ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q5" type="radio" value="A"/><span class="qcm-option-text">À mémoriser le plus petit indice trouvé.</span></label>
+<label class="qcm-option"><input name="qcm_q5" type="radio" value="B"/><span class="qcm-option-text">À conserver la valeur que l’on veut replacer correctement.</span></label>
+<label class="qcm-option"><input name="qcm_q5" type="radio" value="C"/><span class="qcm-option-text">À compter le nombre total d’échanges.</span></label>
+</div>
+</div>
+</section>
+
+<section class="section-block qcm-block" data-correct="C">
+<h3 class="section-title"><span class="qcm-badge">Question 6</span></h3>
+<div class="section-body">
+<p class="qcm-question">Quel objectif global est visé dans les trois méthodes étudiées ?</p>
+<div class="qcm-options">
+<label class="qcm-option"><input name="qcm_q6" type="radio" value="A"/><span class="qcm-option-text">Transformer automatiquement les nombres en texte.</span></label>
+<label class="qcm-option"><input name="qcm_q6" type="radio" value="B"/><span class="qcm-option-text">Créer une nouvelle liste sans comparer les éléments.</span></label>
+<label class="qcm-option"><input name="qcm_q6" type="radio" value="C"/><span class="qcm-option-text">Ranger une liste désordonnée dans un ordre cohérent, ici croissant.</span></label>
+</div>
+</div>
+</section>
+</div>
+</section>
+
+<section class="card" id="export">
+<h2>Exporter en PDF</h2>
+<ul class="list">
+<li>Vérifiez que toutes les captures obligatoires sont visibles dans la page.</li>
+<li>Vérifiez que vos réponses rédigées sont complètes et lisibles.</li>
+<li>Cliquez sur <strong>Exporter en PDF</strong>, puis choisissez <strong>Enregistrer en PDF</strong>.</li>
+<li>Remettez ensuite le fichier PDF selon la consigne donnée.</li>
+</ul>
+<div aria-label="Export" class="exportbar exportbar-spaced render-export">
+<button class="actionbtn" id="exportPdf" type="button">Exporter en PDF</button>
+</div>
+<div class="callout spaced-block export-callout"><strong>Important :</strong> si une capture, une réponse ou une information n’apparaît pas dans la page avant l’export, elle ne sera pas dans le PDF.</div>
+</section>
+
+<footer class="course-footer">
+<div class="course-footer-left">Version 2026</div>
+<div class="course-footer-right">© <a class="footer-author-link" href="droits.html">Anis Ghaieb</a> — Support pédagogique original — Tous droits réservés</div>
+</footer>
+<div aria-hidden="true" class="export-confirm-overlay" hidden="" id="exportConfirmOverlay">
+<div aria-labelledby="exportConfirmTitle" aria-modal="true" class="export-confirm-dialog" role="dialog">
+<h2 class="export-confirm-title" id="exportConfirmTitle">Captures obligatoires manquantes</h2>
+<p class="export-confirm-text" id="exportConfirmMessage"></p>
+<div class="export-confirm-actions">
+<button class="actionbtn" id="exportCancel" type="button">Retourner au labo</button>
+<button class="actionbtn primary" id="exportContinue" type="button">Poursuivre l’export</button>
+</div>
+</div>
+</div>
+<div class="code-help-tooltip" hidden="" id="codeHelpTooltip"></div>
+</main>
+</body>
+</html>
